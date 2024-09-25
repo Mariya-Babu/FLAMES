@@ -46,6 +46,9 @@ h1 {
 }
 
 @media only screen and (max-width:500px) {
+    body{
+        height: 98vh;
+    }
     .form{
         margin:20px;
         padding: 50px 20px;
