@@ -1,22 +1,17 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const name1Input = document.getElementById("name1");
     const name2Input = document.getElementById("name2");
 
     // Event listener for pressing Enter key in both input fields
-    name1Input.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            showLoading();
-        }
-    });
+    name1Input.addEventListener("keydown", handleEnter);
+    name2Input.addEventListener("keydown", handleEnter);
+});
 
-    name2Input.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-            showLoading();
-        } 
-    });
-});  
-
+function handleEnter(event) {
+    if (event.key === "Enter") {
+        showLoading();
+    }
+}
 
 function showLoading() {
     document.getElementById("result").textContent = "";
@@ -38,25 +33,32 @@ function calculateFLAMES() {
 
     const count = getRemainingCount(name1, name2);
     const result = getFLAMESResult(count);
+    
+    // Display result
     document.getElementById("loading").style.display = "none";
     document.getElementById("result").textContent = result;
     document.querySelector(".result").style.display = "block";
 
-
     // Log to the server
+    logDataToServer(name1, name2, result);
+}
+
+function logDataToServer(name1, name2, result) {
     fetch('/log', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ name1, name2, result })
-    }).then(response => {
+    })
+    .then(response => {
         if (response.ok) {
             console.log('Data logged successfully');
         } else {
-            console.error('Failed to log data');
+            console.error('Failed to log data:', response.statusText);
         }
-    }).catch(error => {
+    })
+    .catch(error => {
         console.error('Error:', error);
     });
 }
