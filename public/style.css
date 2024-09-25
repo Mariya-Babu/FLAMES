@@ -48,6 +48,8 @@ h1 {
 @media only screen and (max-width:500px) {
     .form{
         margin:20px;
+        padding: 50px 20px;
+        height: 400px;
     }
     .input-group{
         width: 300px;
@@ -59,6 +61,11 @@ h1 {
 
     .btn{
         width: 250px;
+    }
+    footer{
+        position: relative;
+        bottom: 0px;
+        left: 0px;
     }
 }
 
@@ -101,7 +108,6 @@ button:hover {
 
 #result {
     font-size: 24px;
-    /* color: #007bff; */
     color: #fff;
 }
 
@@ -114,6 +120,7 @@ footer{
     text-transform: capitalize;
     line-height: 20px;
 }
+
 .copy{
     font-size: 12px;
     font-weight: normal;
