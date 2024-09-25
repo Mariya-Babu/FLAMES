@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAMES</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <h1 class="heading">FLAMES</h1>
+            <div class="input-group">
+                <label for="name1">Your Name:</label>
+                <input type="text" id="name1" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label for="name2">Partner's Name:</label>
+                <input type="text" id="name2" placeholder="Enter partner's name">
+            </div>
+            <button onclick="showLoading()" class="btn">Calculate</button>
+            <div id="loading" class="loading" style="display: none;"></div>
+            <div class="result">
+                <h2><span id="result"></span></h2>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span>Design &amp; Developed by Mariya Babu</span> <br>
+        <span class="copy">CopyRight &copy; all rights reserved</span>
+    </footer>
+    <script src="scripts.js"></script> <!-- Load scripts.js at the end -->
+</body>
+</html>
