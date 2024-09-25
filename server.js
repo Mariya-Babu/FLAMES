@@ -21,6 +21,16 @@ app.post('/log', (req, res) => {
     });
 });
 
+// Endpoint to get userData
+app.get('/userdata', (req, res) => {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading userData.txt');
+        }
+        res.send(data);
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
